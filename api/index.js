@@ -1,6 +1,5 @@
 
 // require("../utils.js");
-
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
@@ -231,23 +230,6 @@ app.get('/loggedin', (req,res) => {
     <a href = '/logout'>Log out <a>
     </form>
     `;
-    // function getRandomInt(max) {
-    //     return Math.floor(Math.random() * max);
-    //   }
-    // if (getRandomInt(3) == 0) {
-    //     var image = `1.png`;
-    // }
-    // else if (getRandomInt(3) == 1) {
-    //     var image = `2.png`;
-    // }
-    // else {
-    //     var image = `3.png`;
-    // }
-    // var html = `<h1>Hello , ` + req.session.username + `!</h1>` 
-    // + `<br>` + `<img src="></>` + `<br>`
-    // + `<form action='/logout' method='get'>
-    //         <button>Log out</button>
-    //     </form>`;
     res.send(html);
 });
 
