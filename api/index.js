@@ -23,6 +23,8 @@ const port = process.env.PORT || 3000;
 
 const Joi = require("joi");
 
+const images = ["1.png", "2.png", "3.png"];
+
 
 const expireTime = 24 * 60 * 60 * 1000; //expires after 1 day  (hours * minutes * seconds * millis)
 
@@ -219,23 +221,33 @@ app.get('/loggedin', (req,res) => {
     if (!req.session.authenticated) {
         res.redirect('/login');
     }
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-      }
-    if (getRandomInt(3) == 0) {
-        var image = `<img src='1.png' style='width:250px;'>`;
-    }
-    else if (getRandomInt(3) == 1) {
-        var image = `<img src='2.png' style='width:250px;'>`;
-    }
-    else {
-        var image = `<img src='3.png' style='width:250px;'>`;
-    }
-    var html = `<h1>Hello , ` + req.session.username + `!</h1>` 
-    + `<br>` + image + `<br>`
-    + `<form action='/logout' method='get'>
-            <button>Log out</button>
-        </form>`;
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    const imagePath = randomImage;
+
+    const html = `
+    <form action='/' method='post'>
+    <h1>Welcome ${req.session.username}!<h1>
+    <img src = ${imagePath}>
+    <a href = '/logout'>Log out <a>
+    </form>
+    `
+    // function getRandomInt(max) {
+    //     return Math.floor(Math.random() * max);
+    //   }
+    // if (getRandomInt(3) == 0) {
+    //     var image = `1.png`;
+    // }
+    // else if (getRandomInt(3) == 1) {
+    //     var image = `2.png`;
+    // }
+    // else {
+    //     var image = `3.png`;
+    // }
+    // var html = `<h1>Hello , ` + req.session.username + `!</h1>` 
+    // + `<br>` + `<img src="></>` + `<br>`
+    // + `<form action='/logout' method='get'>
+    //         <button>Log out</button>
+    //     </form>`;
     res.send(html);
 });
 
