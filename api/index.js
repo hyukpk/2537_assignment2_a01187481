@@ -223,17 +223,16 @@ app.get('/loggedin', (req,res) => {
         return Math.floor(Math.random() * max);
       }
     if (getRandomInt(3) == 0) {
-        var imageName = `1.png`;
+        var image = `<img src='1.png' style='width:250px;'>`;
     }
     else if (getRandomInt(3) == 1) {
-        imageName = `2.png`;
+        image = `<img src='2.png' style='width:250px;'>`;
     }
     else {
-        imageName = `3.png`;
+        image = `<img src='3.png' style='width:250px;'>`;
     }
     var html = `<h1>Hello , ` + req.session.username + `!</h1>` 
-    + `<br>` + `<img src="${imageName}" alt="Random image" style="width: 200px; height: 200px;">`
-    + `<br>`
+    + `<br>` + image + `<br>`
     + `<form action='/logout' method='get'>
             <button>Log out</button>
         </form>`;
