@@ -41,6 +41,7 @@ const client = require("../databaseConnection");
 const userCollection = client.db(mongodb_database).collection('users');
 
 app.use(express.urlencoded({extended: false}));
+app.use(express.static(__dirname + "/../public"));
 
 var mongoStore = MongoStore.create({
 	mongoUrl: `mongodb+srv://${mongodb_user}:${mongodb_password}@${mongodb_host}/sessions`,
