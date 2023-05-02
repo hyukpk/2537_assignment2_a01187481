@@ -230,7 +230,7 @@ app.get('/loggedin', (req,res) => {
     <img src = ${imagePath}>
     <a href = '/logout'>Log out <a>
     </form>
-    `
+    `;
     // function getRandomInt(max) {
     //     return Math.floor(Math.random() * max);
     //   }
