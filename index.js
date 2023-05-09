@@ -1,5 +1,3 @@
-
-// require("../utils.js");
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
@@ -40,7 +38,7 @@ const mongodb_session_secret = process.env.MONGODB_SESSION_SECRET;
 const node_session_secret = process.env.NODE_SESSION_SECRET;
 /* END secret section */
 
-const client = require("../databaseConnection");
+const client = require("./databaseConnection");
 
 const userCollection = client.db(mongodb_database).collection('users');
 
@@ -238,6 +236,6 @@ app.get("*", (req,res) => {
 
 module.exports = app;
 
-// app.listen(port, () => {
-// 	console.log("Node application listening on port "+port);
-// }); 
+app.listen(port, () => {
+	console.log("Node application listening on port "+port);
+}); 
