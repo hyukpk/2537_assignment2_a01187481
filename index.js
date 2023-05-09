@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const saltRounds = 12;
 const app = express();
 app.set('view engine', 'ejs');
-
+app.set('views', __dirname + '/views');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -231,8 +231,6 @@ app.get("*", (req,res) => {
 	res.status(404);
 	res.render('404', {nav: nav, currentURL: urlencoded.parse(req.url).pathname});
 })
-
-
 
 module.exports = app;
 
