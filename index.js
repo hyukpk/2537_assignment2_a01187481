@@ -234,6 +234,6 @@ app.get("*", (req,res) => {
 
 module.exports = app;
 
-app.listen(port, () => {
-	console.log("Node application listening on port "+port);
-}); 
+// app.listen(port, () => {
+// 	console.log("Node application listening on port "+port);
+// }); 
