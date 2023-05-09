@@ -1,0 +1,5 @@
+<li>
+    <%= user.username %>: <%= user.email %> (<%=user.user_type %>)
+    <a class="btn btn-primary") href="/changeUser/admin/<%= user.username %>">Promote to Admin</a>
+    <a class="btn btn-danger" href="/changeUser/user/<%= user.username %>">Demote to User</a>
+</li>
