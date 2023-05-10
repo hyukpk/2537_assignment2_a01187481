@@ -46,7 +46,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static(__dirname + "/../public"));
 
 var mongoStore = MongoStore.create({
-	mongoUrl: `mongodb+srv://${mongodb_user}:${mongodb_password}@${mongodb_host}/sessions`,
+	mongoUrl: `mongodb+srv://${mongodb_user}:${mongodb_password}@${mongodb_host}/assignment2`,
 	crypto: {
 		secret: mongodb_session_secret
 	}
