@@ -155,7 +155,7 @@ app.post('/submitUser', async (req,res) => {
 
     var hashedPassword = await bcrypt.hash(password, saltRounds);
 	
-	await userCollection.insertOne({username: username, email: email, password: hashedPassword, user_type: user});
+	await userCollection.insertOne({username: username, email: email, password: hashedPassword, user_type: "user"});
 	console.log("Inserted user");
     
     res.redirect('/loggedin');
@@ -234,6 +234,6 @@ app.get("*", (req,res) => {
 
 module.exports = app;
 
-// app.listen(port, () => {
-// 	console.log("Node application listening on port "+port);
-// }); 
+app.listen(port, () => {
+	console.log("Node application listening on port "+port);
+}); 
